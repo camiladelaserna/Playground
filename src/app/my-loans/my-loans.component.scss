@@ -1,0 +1,52 @@
+.section {
+    width: 95%;
+}
+
+p {
+    margin: 0;
+    height: fit-content;
+}
+
+.card {
+    width: 350px;
+    border: solid 1px lightgray;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .content {
+        display: flex;
+        height: 150px;
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .data {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                .col {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    height: fit-content;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    width: auto;
+}
+
+.red {
+    background-color: lightgray;
+}
+

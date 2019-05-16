@@ -1,0 +1,84 @@
+<section class="container-fluid section">
+    <div class="container-fluid">
+        <div class="row header">
+            <div class="col-sm-auto first">
+                <h1>My Loans</h1>
+            </div>
+            <div class="col second">
+                <p>> view all</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid card" *ngFor = "let card of cards" (mouseover)="whatCard($event)" id="{{card.id}}">
+                <div class="container-fluid content">
+                    <div class="row">
+                        <div class="col data">
+                            <div class="col">
+                                <p>Lend</p>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <h6>{{card.lend}}</h6>
+                            </div>
+                        </div>
+                        <div class="col data">
+                            <div   class="col">
+                                <p>Currency</p>
+                            </div>
+                            <div   class="w-100"></div>
+                            <div   class="col">
+                                <h6>{{card.currency}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col data">
+                            <div class="col">
+                                <p>Duration</p>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <h6>{{card.duration}}</h6>
+                            </div>
+                        </div>
+                        <div class="col data">
+                            <div class="col">
+                                <p>Percentaje</p>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <h6>{{card.percentaje}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ngu-carousel #myCarousel [inputs]="carouselTile" [dataSource]="carouselTileItems">
+            <ngu-tile *nguCarouselDef="let item; let i = index">
+          
+              <ngu-carousel #myCarousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad(i)" [dataSource]="carouselTiles[i]">
+                <ngu-tile *nguCarouselDef="let item; let j = index">
+                  <div class="tile" [style.background]="'url(' + item + ')'" style="min-height: 200px">
+                    <h1>{{j}}</h1>
+                  </div>
+                </ngu-tile>
+                <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1">&lt;</button>
+                <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1">&gt;</button>
+                <ul class="myPoint" NguCarouselPoint>
+                  <!-- <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"
+                    [style.background]="'url(' + carouselTileItems[j] + ')'"></li> -->
+                </ul>
+              </ngu-carousel>
+          
+            </ngu-tile>
+            <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1">&lt;</button>
+            <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1">&gt;</button>
+            <ul class="myPoint" NguCarouselPoint>
+              <!-- <li *ngFor="let i of myCarousel.pointNumbers; let i = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(i)"
+                [style.background]="'url(' + carouselTileItems[i] + ')'"></li> -->
+            </ul>
+          </ngu-carousel>
+</section>
